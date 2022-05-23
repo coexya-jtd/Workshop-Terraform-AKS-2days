@@ -22,6 +22,19 @@ resource "azurerm_subnet" "terra_subnet" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+resource "azurerm_public_ip" "public_ip" {
+  name                = "LabK8SPublicIp1"
+  resource_group_name = var.locationGroupName
+  location            = var.locationGroupName
+  allocation_method   = "Static"
+
+  tags = {
+    Environment = "JTD-K8S",
+    Client      = "Coexya DIA",
+    Responsable = "AML"
+  }
+}
+
 resource "azurerm_network_interface" "terra_nic" {
   name                = var.nicName
   location            = var.locationGroupName
@@ -31,6 +44,8 @@ resource "azurerm_network_interface" "terra_nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.terra_subnet.id
     private_ip_address_allocation = "Dynamic"
+
+    public_ip_address_id = azurerm_public_ip.public_ip.id
   }
 
   tags = {
