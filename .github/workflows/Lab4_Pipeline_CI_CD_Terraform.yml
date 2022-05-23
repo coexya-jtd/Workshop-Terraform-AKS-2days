@@ -37,6 +37,12 @@ jobs:
         run: |
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
           terraform plan -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' -var 'AzureClientID=${{ secrets.CLIENTID }}' -var 'AzureTenandID=${{ secrets.TENANTID }}' -lock=false -out=monplan.tfplan
+      
+      - name: Upload Plan
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact-tf-plan
+          path: ./monplan.tfplan
               
   Deploy-Terraform:
     needs: Build-Terraform
@@ -46,6 +52,12 @@ jobs:
 
       - name: Checks-out du repository
         uses: actions/checkout@v2
+
+      - name: Download Plan
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact-tf-plan
+          path: ./Terraform/Lab4_Pipeline_CI_CD_Terraform/
 
       # Install the needed version of Terraform cli
       - name: Setup Terraform
@@ -63,5 +75,6 @@ jobs:
       - name: Terraform Apply
         run: |
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
+          terraform apply -auto-approve -lock=false "monplan.tfplan"
     
 
