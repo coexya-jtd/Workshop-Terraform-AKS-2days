@@ -78,3 +78,5 @@ jobs:
         run: |
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
           terraform apply -auto-approve -lock=false "monplan.tfplan"
+    
+
