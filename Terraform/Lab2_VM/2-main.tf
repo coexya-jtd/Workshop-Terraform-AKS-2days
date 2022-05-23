@@ -32,6 +32,12 @@ resource "azurerm_network_interface" "terra_nic" {
     subnet_id                     = azurerm_subnet.terra_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
+
+  tags = {
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
 resource "azurerm_linux_virtual_machine" "terra_vm" {
