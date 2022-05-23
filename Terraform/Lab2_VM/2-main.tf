@@ -66,5 +66,11 @@ resource "azurerm_linux_virtual_machine" "terra_vm" {
     sku       = "18.04-LTS" # az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
     version   = "latest"
   }
+
+  tags = {
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
