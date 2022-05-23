@@ -24,7 +24,7 @@ resource "azurerm_subnet" "terra_subnet" {
 
 resource "azurerm_public_ip" "public_ip" {
   name                = "LabK8SPublicIp1"
-  resource_group_name = var.locationGroupName
+  resource_group_name = var.resourceGroupName
   location            = var.locationGroupName
   allocation_method   = "Static"
 
