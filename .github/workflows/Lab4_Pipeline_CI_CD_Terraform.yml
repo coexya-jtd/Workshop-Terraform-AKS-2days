@@ -37,14 +37,12 @@ jobs:
         run: |
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
           terraform plan -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' -var 'AzureClientID=${{ secrets.CLIENTID }}' -var 'AzureTenandID=${{ secrets.TENANTID }}' -lock=false -out=monplan.tfplan
-          pwd
-          ls -lisa
       
       - name: Upload Plan
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact-tf-plan
-          path: ./monplan.tfplan
+          path: ./Terraform/Lab4_Pipeline_CI_CD_Terraform/monplan.tfplan
               
   Deploy-Terraform:
     needs: Build-Terraform
