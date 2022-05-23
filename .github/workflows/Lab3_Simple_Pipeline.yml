@@ -19,3 +19,13 @@ jobs:
       - name: Liste des ressources groupes dans un abonnement
         run: |
           az group list -o table
+  
+  Test-Self: # Nom du job   
+    runs-on: self-hosted # Runner machine qui execute le workflow https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+
+    
+    steps:
+      
+      - name: hello
+        run: |
+          echo 'Hello world!'
