@@ -81,10 +81,10 @@ resource "azurerm_linux_virtual_machine" "terra_vm" {
     azurerm_network_interface.terra_nic.id,
   ]
 
-  admin_ssh_key {
-    username   = var.vmUser
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
+  # admin_ssh_key {
+  #   username   = var.vmUser
+  #   public_key = file("~/.ssh/id_rsa.pub")
+  # }
 
   os_disk {
     caching              = "ReadWrite"

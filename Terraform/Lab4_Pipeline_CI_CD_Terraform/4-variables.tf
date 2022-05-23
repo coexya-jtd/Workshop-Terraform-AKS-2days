@@ -30,6 +30,39 @@ variable "AzureTenandID" {
   type = string
 }
 
+variable "vnetName" {
+    type = string
+    default = "Vnet-VM2-jtd"  
+}
+
+variable "subnetName" {
+    type = string
+    default = "Subnet-VM2-jtd"  
+}
+
+variable "nicName" {
+    type = string
+    default = "Nic-2-jtd"
+  
+}
+
+variable "vmName" {
+    type = string
+    default = "VM2-Linux"  
+}
+
+# az vm list-skus -l westus
+variable "vmSize" {
+    type = string
+    default = "Standard_B2ms"  
+}
+
+variable "vmUser" {
+    type = string
+    default = "adminuser"  
+}
+
+
 
 
 
