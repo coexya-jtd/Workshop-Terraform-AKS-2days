@@ -4,6 +4,11 @@ variable "resourceGroupName" {
   default = "Sandbox-JTD"
 }
 
+variable "locationGroupName" {
+  type    = string
+  default = "westeurope"
+}
+
 variable "azureRegion" {
   description = "Azure Region where to deploy resources. Caution the region must support Availability Zone"
   # To get names of Azure Region : az account list-locations
