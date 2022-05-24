@@ -33,6 +33,13 @@ resource "azurerm_kubernetes_cluster" "Terra_aks" {
     min_count           = var.defaultpool-mincount
     max_count           = var.defaultpool-maxcount
     vnet_subnet_id      = azurerm_subnet.Terra_aks_subnet.id
+
+     tags = {
+        Usage       = "WorkShop IaC"
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
   }
 
 #   linux_profile {
@@ -49,6 +56,13 @@ resource "azurerm_kubernetes_cluster" "Terra_aks" {
     docker_bridge_cidr = "172.17.0.1/16"
     service_cidr       = "10.0.0.0/16" # Must not overlap any address from the VNet
     load_balancer_sku  = "Standard"    # sku can be basic or standard. Here it an AKS cluster with AZ support so Standard SKU is mandatory
+
+     tags = {
+        Usage       = "WorkShop IaC"
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
   }
 
   # addon_profile {
