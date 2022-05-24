@@ -79,7 +79,7 @@ jobs: # 3 jobs qui s'enchaînent à la suite : 1 analyze-code - 2 test-unitaire 
 
       - name: Login Azure Container Registry
         run: |
-          docker login ${{ env.REGISTRY_NAME}}.azurecr.io --username ${{ secrets.CLIENTID}} --password ${{ secrets.CLIENTSECRET }}
+          docker login ${{ env.REGISTRY_NAME}}.azurecr.io -u ${{ secrets.CLIENTID}} -p ${{ secrets.CLIENTSECRET }}
 
       - name: Push de l'image de l'application
         run: |
