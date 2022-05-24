@@ -21,6 +21,12 @@ resource "azurerm_kubernetes_cluster" "Terra_aks" {
   sku_tier                   = var.sku-controlplane
   private_cluster_enabled    = var.enable-privatecluster
 
+  tags = {
+        Usage       = "WorkShop IaC"
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 
   default_node_pool {
     name                = var.defaultpool-name
@@ -102,13 +108,5 @@ resource "azurerm_kubernetes_cluster" "Terra_aks" {
   identity {
     type = "SystemAssigned"
   }
-
-
-  tags = {
-        Usage       = "WorkShop IaC"
-        Environment = "JTD-K8S",
-        Client      = "Coexya DIA",
-        Responsable = "AML"
-    }
 }
 
