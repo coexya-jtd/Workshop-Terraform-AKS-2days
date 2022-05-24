@@ -11,8 +11,8 @@ terraform {
   required_version = ">= 1.1.7"
   # cf. https://www.terraform.io/language/settings/backends/azurerm
   backend "azurerm" {
-    resource_group_name  = "RG-AKSCluster"         # mettre ici le nom du resource group de vos ressource
-    storage_account_name = "terraformstan"      # mettre le nom du compte de stockage créer dans le lab 1
+    resource_group_name  = "Sandbox-JTD"     # mettre ici le nom du resource group de vos ressource
+    storage_account_name = "jtdtwxtf"  # /!\ mettre le nom du compte de stockage créer dans le lab 1
     container_name       = "tfstate"
     key                  = "acr.terraform.tfstate" 
   }
@@ -39,4 +39,8 @@ terraform {
 provider "azurerm" {
   # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
   features {}
+  subscription_id = var.AzureSubscriptionID
+  client_id       = var.AzureClientID
+  client_secret   = var.AzureClientSecret
+  tenant_id       = var.AzureTenandID
 }

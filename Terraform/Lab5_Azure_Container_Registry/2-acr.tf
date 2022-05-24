@@ -4,7 +4,11 @@ resource "azurerm_container_registry" "Terra-acr" {
   location            = var.azureRegion
   sku                 = "Standard"
   admin_enabled       = false
-  
+  tags = {
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
 # https://www.terraform.io/language/values/outputs#declaring-an-output-value
