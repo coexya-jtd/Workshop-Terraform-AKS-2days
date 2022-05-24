@@ -13,8 +13,10 @@ resource "azurerm_storage_account" "Terra-Storage-Backend" {
   enable_https_traffic_only = true
 
   tags = {
-    environment = "lab"
-  }
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
 
