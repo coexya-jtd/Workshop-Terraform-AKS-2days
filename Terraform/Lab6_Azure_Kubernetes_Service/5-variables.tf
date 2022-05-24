@@ -10,26 +10,26 @@ variable "azure_region" {
 #  Resource Group Name
 variable "resource_group" {
   type    = string
-  default = "RG-AKSCluster"
+  default = "RG-AKSCluster-JTD"
 }
 
 # Virtual Network name
 variable "aks_vnet_name" {
     type = string
-    default = "aksvnet"
+    default = "aksvnetjtd"
 }
 
 
 # AKS Cluster name
 variable "cluster_name" {
   type    = string
-  default = "AKS-000"
+  default = "AKS-000-jtd"
 }
 
 #AKS DNS name
 variable "dns_name" {
   type    = string
-  default = "aks0000"
+  default = "aks0000jtd"
 }
 
 # sku of Azure managed K8S control plane

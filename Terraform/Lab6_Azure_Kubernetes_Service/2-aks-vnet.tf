@@ -13,6 +13,11 @@ resource "azurerm_virtual_network" "Terra_aks_vnet" {
   location                   = var.azure_region
   resource_group_name        = var.resource_group
   address_space       = ["10.0.0.0/8"]
+  tags = {
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
 # Role Assignment to give AKS the access to VNET - Required for Advanced Networking
@@ -31,6 +36,11 @@ resource "azurerm_subnet" "Terra_aks_subnet" {
   resource_group_name        = var.resource_group
   virtual_network_name = azurerm_virtual_network.Terra_aks_vnet.name
   address_prefixes     = ["10.240.0.0/16"]
+  tags = {
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
 # Role Assignment to give AKS the access to AKS subnet

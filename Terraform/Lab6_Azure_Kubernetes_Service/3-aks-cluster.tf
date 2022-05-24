@@ -98,8 +98,10 @@ resource "azurerm_kubernetes_cluster" "Terra_aks" {
 
 
   tags = {
-    Usage       = "WorkShop IaC"
-    Environment = "Azure AKS"
-  }
+        Usage       = "WorkShop IaC"
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
