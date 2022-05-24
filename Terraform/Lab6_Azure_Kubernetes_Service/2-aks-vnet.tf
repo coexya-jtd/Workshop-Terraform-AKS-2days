@@ -50,6 +50,11 @@ resource "azurerm_role_assignment" "Terra-aks-subnet-role" {
   scope                = azurerm_subnet.Terra_aks_subnet.id
   role_definition_name = "Contributor"
   principal_id         = azurerm_kubernetes_cluster.Terra_aks.kubelet_identity.0.object_id
+  tags = {
+        Environment = "JTD-K8S",
+        Client      = "Coexya DIA",
+        Responsable = "AML"
+    }
 }
 
 
